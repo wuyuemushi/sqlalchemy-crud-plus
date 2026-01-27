@@ -79,10 +79,10 @@ class CRUDPlus(Generic[Model]):
         Create a new instance of a model.
 
         :param session: The SQLAlchemy async session
-        :param obj: The Pydantic schema containing data to be saved
+        :param obj: A Pydantic schema or dictionary containing the data to be saved
         :param flush: If `True`, flush all object changes to the database
         :param commit: If `True`, commits the transaction immediately
-        :param kwargs: Additional model data not included in the pydantic schema
+        :param kwargs: Additional model data not included in the pydantic schema or dict
         :return:
         """
         obj_data = obj if isinstance(obj, dict) else obj.model_dump()
@@ -111,10 +111,10 @@ class CRUDPlus(Generic[Model]):
         Create new instances of a model.
 
         :param session: The SQLAlchemy async session
-        :param objs: The Pydantic schema list containing data to be saved
+        :param objs: A list of Pydantic schemas or dictionaries containing the data to be saved
         :param flush: If `True`, flush all object changes to the database
         :param commit: If `True`, commits the transaction immediately
-        :param kwargs: Additional model data not included in the pydantic schema
+        :param kwargs: Additional model data not included in the pydantic schema or dict
         :return:
         """
         ins_list = []
